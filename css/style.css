@@ -1,0 +1,53 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Arial', sans-serif;
+}
+
+.background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1; /* Pastikan video berada di belakang semua konten lain */
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    position: relative;
+    z-index: 1; /* Konten harus di atas video background */
+}
+
+.card-instruction, .card-validation {
+    margin: auto; /* Menambahkan margin auto untuk keduanya */
+    max-width: 350px; /* Mengatur lebar maksimal sama untuk kedua elemen */
+}
+
+.instruction-image {
+    width: 100%; /* Menyesuaikan lebar gambar */
+    height: auto;
+}
+
+.validation-box {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    display: inline-block;
+    text-align: center; /* Memusatkan teks dalam kotak validasi */
+}
+
+.footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 15px; /* Mengubah ukuran font menjadi 22px */
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.9);
+}
