@@ -1,8 +1,11 @@
-body, html {
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
     height: 100%;
-    overflow: hidden;
     font-family: 'Arial', sans-serif;
 }
 
@@ -10,44 +13,145 @@ body, html {
     position: fixed;
     top: 0;
     left: 0;
-    min-width: 100%;
-    min-height: 100%;
-    z-index: -1; /* Pastikan video berada di belakang semua konten lain */
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.background-video video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .wrapper {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    min-height: 100vh;
-    position: relative;
-    z-index: 1; /* Konten harus di atas video background */
+    height: 100%;
+    padding: 0 10%;
 }
 
 .card-instruction, .card-validation {
-    margin: auto; /* Menambahkan margin auto untuk keduanya */
-    max-width: 350px; /* Mengatur lebar maksimal sama untuk kedua elemen */
-}
-
-.instruction-image {
-    width: 100%; /* Menyesuaikan lebar gambar */
-    height: auto;
-}
-
-.validation-box {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.8);
     padding: 20px;
     border-radius: 10px;
-    display: inline-block;
-    text-align: center; /* Memusatkan teks dalam kotak validasi */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    width: 45%;
+    text-align: center;
+}
+
+.card-validation {
+    padding: 40px;
+    max-width: 600px;
+    width: 60%;
+}
+
+.card-validation h1,
+.card-validation input[type=text],
+.card-validation button {
+    font-size: 60px;
+    padding: 20px;
+}
+
+.card-validation input[type=text] {
+    font-size: 35px;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.card-validation button {
+    width: 9em;
+    height: 3em;
+    border-radius: 30em;
+    font-size: 35px;
+    font-family: inherit;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    box-shadow: 6px 6px 12px #c5c5c5,
+             -6px -6px 12px #ffffff;
+    padding: 20px;
+}
+
+.card-validation button::before {
+    content: '';
+    width: 0;
+    height: 3em;
+    border-radius: 30em;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(to right, #0fd850 0%, #f9f047 100%);
+    transition: .5s ease;
+    display: block;
+    z-index: -1;
+}
+
+.card-validation button:hover::before {
+    width: 9em;
+}
+
+#validation-result {
+    font-size: 30px;
+    padding: 20px;
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+.valid {
+    color: green;
+}
+
+.invalid {
+    color: red;
 }
 
 .footer {
-    text-align: center;
-    color: #aaa;
-    font-size: 15px; /* Mengubah ukuran font menjadi 22px */
     position: fixed;
     bottom: 0;
+    left: 0;
     width: 100%;
-    background: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    padding: 10px 0;
+    font-size: 40px;
+    z-index: 10;
+}
+
+.instruction-image {
+    width: 100%;
+    max-width: none;
+}
+
+.input {
+    border: none;
+    padding: 1rem;
+    border-radius: 1rem;
+    background: #e8e8e8;
+    box-shadow: 20px 20px 60px #c5c5c5, -20px -20px 60px #ffffff;
+    transition: 1s;
+}
+
+.input:focus {
+    outline-color: #e8e8e8;
+    background: #e8e8e8;
+    box-shadow: inset 20px 2px 60px #c5c5c5, inset -20px -20px 60px #ffffff;
+    transition: 0.3s;
+}
+
+@keyframes glowing {
+    0% { color: #00f; }
+    50% { color: #000; }
+    100% { color: #fff; }
+}
+
+.glowing-text {
+    font-size: 60px;
+    text-align: center;
+    animation: glowing 2s infinite alternate;
+    margin-top: auto;
 }
